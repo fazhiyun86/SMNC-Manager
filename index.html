@@ -5,12 +5,102 @@
 	<title>SMNC消防管理</title>
 	<link rel="stylesheet" href="src/css/global.css">
 	<link rel="stylesheet" href="src/css/index.css">
+	<style>
+		.bg {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background: url("./src/images/bg.png") no-repeat center center;
+			background-size: cover;
+		}
+	</style>
 </head>
 <body>
+	<div class="bg"></div>
+	<div class="main">
+		<header class="header">
+			<div>
+				<h1>SMNC <span>消防管理</span></h1>
+			</div>
+			<div>
+				<ul class="header-ul">
+					<li><a href="javascript:;"><i class="iconfont icon-daojishi"></i></a></li>
+					<li><a href="javascript:;"><i class="iconfont icon-heart"></i></a></li>
+					<li><a href="javascript:;"><i class="iconfont icon-setting"></i></a></li>
+				</ul>
+			</div>
+			<div class="aside-wrap">
+				<ul>
+					<li><a href="javascript:;"><i class="iconfont icon-daojishi"></i></a></li>
+					<li><a href="javascript:;"><i class="iconfont icon-plussquareo"></i></a></li>
+					<li><a href="javascript:;"><i class="iconfont icon-minussquareo"></i></a></li>
+				</ul>
+			</div>
+		</header>
+		<footer class="footer">
+			<div class="footer-wrap">
+				<ul id="selectWrap" class="footer-ul clearfix">
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-building"></i>
+							<span>对象选择</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-settings"></i>
+							<span>消防系统</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-file"></i>
+							<span>安全检查</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-zhihuixiaofang"></i>
+							<span>设备巡检</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-chart"></i>
+							<span>数据统计</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-icon19"></i>
+							<span>设备查询</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="iconfont icon-book"></i>
+							<span>培训教育</span>
+						</a>
+					</li>
+				</ul>
+				<ul class="footer-ul clearfix">
+					<li>
+						<label for="iStructor">
+							<input id="iStructor" type="checkbox">主体结构
+						</label>
+						<label for="iName">
+							<input id="iName" type="checkbox">对象名称
+						</label>
+						<label for="iResult">
+							<input id="iResult" type="checkbox">渲染效果
+						</label>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
 
-	<p>hello wor</p>
-	<p>d</p>
-	<i class="iconfont icon-forbid"></i>
 	<script src="src/common/common.js"></script>
 	<script src="src/js/index.js"></script>
 </body>
