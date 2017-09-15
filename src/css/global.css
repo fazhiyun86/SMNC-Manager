@@ -13,14 +13,40 @@ body {
 .pull-right {
 	float: right;
 }
-.clearfix:after {
-	clear: both;
+.clearfix:after, .clearfix:before {
+	display: table;
 	content: "";
-	display: block;
-	height: 0;
 	line-height: 0;
-	visibility: hidden;
+	clear: both;
 }
 .clearfix {
 	zoom: 1;
+}
+
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.pad10 {
+	padding: 10px!important;
+}
+.padt5 {
+	padding-top: 10px!important;
+}
+.padt10 {
+	padding-top: 10px!important;
+}
+.padt15 {
+	padding-top: 15px!important;
+}
+.margt5 {
+	margin-top: 5px!important;
+}
+.margt10 {
+	margin-top: 10px!important;
+}
+.margt15 {
+	margin-top: 15px!important;
 }
