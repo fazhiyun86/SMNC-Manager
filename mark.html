@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>标注页面</title>
+	<link rel="stylesheet" href="src/css/global.css">
+	<link rel="stylesheet" href="src/css/mark.css">
+	<style>
+		.bg {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background: url("./src/images/bg.png") no-repeat center center;
+			background-size: cover;
+		}
+
+		/*树形结构*/
+		.tree-wrap {
+			padding-left: 15px;
+		}
+		.icon-arrow-right, .icon-weibiaoti1 {
+			font-size: 20px;
+			cursor: pointer;
+		}
+		.tree-title {
+			position: relative;
+			padding-left: 20px;
+			cursor: col-resize;
+			cursor: pointer;
+		}
+		.tree-title i {
+			position: absolute;
+			left: 0;
+		}
+		.tree-item {
+			padding: 2px 0;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="bg"></div>
+	<div class="main">
+		<header class="main-header">
+			header content
+		</header>
+		<div class="content">
+			<aside class="content-left">
+				<div class="tree device-type">
+
+	<!-- 				<ul class="tree-wrap">
+						<li class="tree-item">
+							<p class="tree-title tree-toggle"><i class="iconfont icon-weibiaoti1"></i>设备类别</p>
+							<ul class="tree-wrap">
+								<li class="tree-item">
+									<p class="tree-title tree-toggle active">消防栓</p>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle">末端试水装置</p>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle">湿试报警阀</p>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle">烟感探测器</p>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle">气体灭火控制盘</p>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle">氧浓度</p>
+								</li>
+							</ul>
+						</li>
+					</ul> -->
+					
+				</div>
+			</aside>
+			<aside class="content-right">
+				<div class="tree">
+					<ul class="tree-wrap">
+						<li class="tree-item">
+							<p class="tree-title tree-toggle"><i class="iconfont icon-weibiaoti1"></i>设备</p>
+							<ul class="tree-wrap">
+								<li class="tree-item">
+									<p class="tree-title tree-toggle"><i class="iconfont icon-weibiaoti1"></i>消防栓</p>
+									<ul class="tree-wrap">
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">消防栓1</p>
+										</li>
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">消防栓2</p>
+										</li>
+									</ul>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle"><i class="iconfont icon-weibiaoti1"></i>末端试水装置</p>
+									<ul class="tree-wrap">
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">末端试水装置1</p>
+										</li>
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">末端试水装置2</p>
+										</li>
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">末端试水装置3</p>
+										</li>
+									</ul>
+								</li>
+								<li class="tree-item">
+									<p class="tree-title tree-toggle"><i class="iconfont icon-weibiaoti1"></i>烟感探测器</p>
+									<ul class="tree-wrap">
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">烟感探测器1</p>
+										</li>
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">烟感探测器2</p>
+										</li>
+										<li class="tree-item">
+											<p class="tree-title tree-toggle">烟感探测器3</p>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<ul class="attr">
+					<li class="attr-title">属性</li>
+					<li class="attr-item">
+						<span class="attr-name">名称：</span>
+						<input class="attr-input" type="text">
+						<button class="attr-btn">绑定</button>
+					</li>
+					<li class="attr-item">
+						<p>位置：</p>
+						<p class="attr-val">
+							<span class="attr-name">X：</span>
+							<input class="attr-move double-edit attr-input hide" type="text">
+							<span class="attr-move double-show">100</span>
+						</p>
+						<p class="attr-val">
+							<span class="attr-name">Y：</span>
+							<input class="attr-move double-edit attr-input hide" type="text">
+							<span class="attr-move double-show">100</span>
+						</p>
+						<p class="attr-val">
+							<span class="attr-name">Z：</span>
+							<input class="attr-move double-edit attr-input hide" type="text">
+							<span class="attr-move double-show">100</span>
+						</p>
+					</li>
+					<li class="attr-item">
+						<p>旋转：</p>
+						<p>
+							<span class="attr-name">X：</span>
+							<input class="attr-input" type="text">
+						</p>
+						<p>
+							<span class="attr-name">Y：</span>
+							<input class="attr-input" type="text">
+						</p>
+						<p>
+							<span class="attr-name">Z：</span>
+							<input class="attr-input" type="text">
+						</p>
+					</li>
+
+					<li class="attr-item">
+						<span class="attr-name">备注:</span>
+						<textarea class="attr-desc"></textarea>
+					</li>
+				</ul>
+			</aside>
+		</div>
+		<footer class="main-footer">
+			
+		</footer>
+	</div>
+
+	<script src="src/common/lib/jquery-1.11.3.js"></script>
+	<script src="src/common/common.js"></script>
+	<script src="src/js/mark.js"></script>
+</body>
+</html>

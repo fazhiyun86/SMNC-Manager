@@ -1,0 +1,68 @@
+.main {
+	padding: 0;
+}
+.main-header {
+	height: 50px;
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	text-align: center;
+}
+.content {
+	position: relative;
+}
+.content-left {
+	float: left;
+	width: 200px;
+	border: 1px solid #ccc;
+	min-height: 400px;
+}
+.content-right {
+	float: right;
+	width: 200px;
+	border: 1px solid #ccc;
+}
+.content-right .tree {
+	height: 300px;
+	overflow: auto;
+	border-bottom: 1px solid #ccc;
+}
+/*左边*/
+.device-type .tree-item {
+	padding: 5px 0;
+}
+.device-type .active{
+	/*background-color: #ccc;*/
+	color: red;
+	font-weight: 600;
+}
+
+
+
+/*右面*/
+/*属性*/
+.attr li {
+	border-bottom: 1px solid #ccc;
+	padding: 5px 0;
+}
+.attr-val {
+	height: 20px;
+	line-height: 20px;
+}
+.attr-name {
+	display: inline-block;
+	min-width: 50px;
+	text-align: center;
+}
+.attr-input {
+	display: inline-block;
+	width: 50px;
+}
+.attr-item > p {
+	padding: 5px 0;
+}
+.attr-desc {
+	margin-top: 5px;
+}
+.double-show {
+	cursor: col-resize;
+}
