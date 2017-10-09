@@ -131,7 +131,7 @@
 					<li class="attr-item">
 						<span class="attr-name">名称：</span>
 						<input class="attr-input" type="text">
-						<button class="attr-btn">绑定</button>
+						<button id="bindBtn" class="attr-btn">绑定</button>
 					</li>
 					<li class="attr-item">
 						<p>位置：</p>
@@ -153,17 +153,20 @@
 					</li>
 					<li class="attr-item">
 						<p>旋转：</p>
-						<p>
+						<p class="attr-val">
 							<span class="attr-name">X：</span>
-							<input class="attr-input" type="text">
+							<input class="attr-move double-edit attr-input hide" type="text">
+							<span class="attr-move double-show">100</span>
 						</p>
-						<p>
+						<p class="attr-val">
 							<span class="attr-name">Y：</span>
-							<input class="attr-input" type="text">
+							<input class="attr-move double-edit attr-input hide" type="text">
+							<span class="attr-move double-show">100</span>
 						</p>
-						<p>
+						<p class="attr-val">
 							<span class="attr-name">Z：</span>
-							<input class="attr-input" type="text">
+							<input class="attr-move double-edit attr-input hide" type="text">
+							<span class="attr-move double-show">100</span>
 						</p>
 					</li>
 
@@ -178,6 +181,24 @@
 			
 		</footer>
 	</div>
+	
+	<!-- 绑定的弹窗 s -->
+	<div class="modal">
+		<div class="modal-mark modal-content">
+			<div class="modal-header">
+				<h2 class="pull-left">标题</h2>
+				<span class="modal-close pull-right">&times;</span>
+			</div>
+			<div class="modal-body">
+				内容部分
+			</div>
+			<div class="modal-footer">
+				footer
+			</div>
+		</div>
+	</div>
+	<!-- 绑定的弹窗 s -->
+	<div class="modal-bg"></div>
 
 	<script src="src/common/lib/jquery-1.11.3.js"></script>
 	<script src="src/common/common.js"></script>

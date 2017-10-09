@@ -46,23 +46,47 @@
 	float: left;
 	margin: 0 10px;
 }
-/*左边侧栏样式*/
+/*左边侧栏样式 s*/
 .aside-wrap {
 	position: fixed;
-	left: -280px;
-	border: 1px solid #fff;
+	left: -320px;
+	border: 1px solid rgba(81, 81, 81, 1);
 	padding: 10px;
 	background-color: rgba(0, 0, 0, 0.6);
-	width: 250px;
+	width: 300px;
 }
-/*系统加载 s*/
 .aside-system-wrap {
-	top: 120px;
+	top: 100px;
 }
 .aside-device-wrap {
-	top: 220px;
+	top: 320px;
 }
 .aside-safe-wrap {
 	top: 320px;
+}
+.aside-header i {
+	font-size: 15px!important;
+}
+.aside-content {
+	max-height: 130px;
+	overflow: auto;
+	margin-top: 5px;
+}
+.aside-content > p {
+	display: flex;
+	justify-content: space-between;
+	padding: 3px 3px;
+}
+.aside-content > p > span.one, 
+.aside-content > p > span.three {
+	color: rgb(0, 255, 255);
+}
+/*左边侧栏样式 s*/
+
+/*系统加载 s*/
+.aside-system-content {
+	border: 1px solid rgb(27, 27, 27);
+	background-color: #000;
+	padding: 10px;
 }
 /*系统加载 e*/

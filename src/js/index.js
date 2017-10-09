@@ -28,8 +28,8 @@
 
 			common.setSliderToggle(strEl, {
 				position: 'left',
-				initValue: '-280px',
-				startOpt: { left: '-280px'},
+				initValue: '-320px',
+				startOpt: { left: '-320px'},
 				endOpt: { left: '20px'}
 			})
 		}

@@ -7,6 +7,8 @@
 
 		this.setDeviceType();
 		this.setMouseMove();
+
+		this.setBindClick();
 	}
 
 	/**
@@ -88,18 +90,30 @@
 		    }
 		]
 		$(".device-type").html(common.treeHtml(da));
-	}
+	};
 
 	/**
-	 * 右面属性值的编辑和控制
+	 * 右面属性值的编辑和控制（value 值可以左右滑动来控制）
 	 */
 	FZY.setMouseMove = function () {
+		// 鼠标滑动的时候的精确度
+		const PRECISEION = 10;
+		// precision
+
 		// 双击显示编辑
 		$(".double-show").on("dblclick", function () {
 			var $this = $(this);
 			var $edit = $this.prev(".double-edit");
 
-			$this.addClass("hide").prev(".double-edit").removeClass("hide")
+			$this.addClass("hide").prev(".double-edit").removeClass("hide").val($this.text() - 0).focus()
+		})
+
+		// 输入框失去焦点
+		$(".double-edit").on("blur", function () {
+			var $this = $(this);
+			var val = $this.val();
+
+			$this.addClass("hide").next(".double-show").removeClass("hide").text(val)
 		})
 
 		// 点击左右滑动
@@ -137,9 +151,29 @@
 		// 设置值
 		function setValue(move) {
 			var $this = move.$this;
-			console.log(move.stepX)
+			var value = move.stepX / PRECISEION;
 
-			$this.text(move.initValue + move.stepX);
+			$this.text(move.initValue + value);
+		}
+	};
+
+	/**
+	 * 点击绑定的操作
+	 */
+	FZY.setBindClick = function () {
+		
+		$("#bindBtn").on("click", function () {
+			toggleShow();
+		})
+
+		// close
+		$(".modal-close").on("click", function () {
+			toggleShow();
+		})
+
+		function toggleShow() {
+			$(".modal").toggleClass("modal-show");
+			$(".modal-bg").toggleClass("modal-show");
 		}
 	}
 
