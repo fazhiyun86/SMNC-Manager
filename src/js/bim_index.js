@@ -4,7 +4,9 @@
 	FZY.init = function () {
 		this.clickHeaderLi();
 		this.modals();
-		FZY.handleFireSystem();
+		this.handleFireSystem();
+
+		this.clickSafeCheck();
 	}
 
 	FZY.clickHeaderLi = function () {
@@ -172,6 +174,12 @@
 	]  
 
 	$(".modal-wrap-main").html(common.treeHtml(da))
+
+	FZY.clickSafeCheck = function () {
+		$(".aside-item-click").on("click", function () {
+			alert("显示详细信息。");
+		})
+	}
 
 
 	FZY.init();

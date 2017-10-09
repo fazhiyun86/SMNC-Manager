@@ -1,18 +1,18 @@
-.header {
+.bim_header {
 	color: #ccc;
 }
-.header {
+.bim_header {
 	font-weight: 400;
 	font-size: 40px;
 }
-.header span {
+.bim_header span {
 	color: #CCCCFF;
 }
-.header-ul li {
+.bim_header .header-ul li {
 	float: left;
 	margin: 0px 20px;
 }
-.header-ul .iconfont {
+.bim_header .header-ul .iconfont {
 	font-size: 25px;
 }
 .aside-wrap {
@@ -71,6 +71,8 @@
 	max-height: 130px;
 	overflow: auto;
 	margin-top: 5px;
+	border: 1px solid rgba(27, 27, 27, 1);
+	padding: 3px;
 }
 .aside-content > p {
 	display: flex;
@@ -81,6 +83,25 @@
 .aside-content > p > span.three {
 	color: rgb(0, 255, 255);
 }
+
+.aside-item-wrap > p {
+	padding: 3px;
+	font-size: 12px;
+	height: 15px;
+	line-height: 15px;
+}
+.aside-item-wrap p.aside-item-time {
+	color: #FFCCFF;
+}
+
+.aside-item-wrap p.aside-item-desc {
+	color: #00FFFF;
+}
+.aside-item-wrap p.aside-item-reason {
+	background-color: rgba(204, 51, 0, 1);
+	color: #fff;
+}
+
 /*左边侧栏样式 s*/
 
 /*系统加载 s*/
@@ -90,3 +111,29 @@
 	padding: 10px;
 }
 /*系统加载 e*/
+
+/*设备异常报警 s*/
+.aside-device-header i.iconfont {
+	color: #de7125;
+}
+.aside-device-header span {
+	color: #00CC00;
+}
+/*设备异常报警 e*/
+
+/*设备异常报警 s*/
+.aside-device-header i.icon-heart,
+.aside-safe-header i.icon-setting {
+	color: #de7125;
+}
+.aside-device-header span, 
+.aside-safe-header span {
+	color: #00CC00;
+}
+.aside-item-click {
+	cursor: pointer;
+}
+.aside-header i.icon-zhedie {
+	font-size: 14px;
+}
+/*设备异常报警 e*/

@@ -28,20 +28,20 @@
 	order: 1;
 }
 
-.header {
+.bim_header {
 	padding: 5px;
 	position: relative;
 	height: 30px;
 	box-sizing: content-box;
 	color: #ccc;
 }
-.header-tit {
+.bim_header .header-tit {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
 	font-size: 25px;
 }
-.header-time {
+.bim_header .header-time {
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
