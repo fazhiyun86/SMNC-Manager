@@ -61,6 +61,29 @@ body {
 .show {
 	display: block!important;
 }
+/*按钮样式*/
+.btn {
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 /*弹层的样式 s*/
 .modal-big-wrap {
 	min-width: 550px;
@@ -119,10 +142,99 @@ body {
 	position: fixed;
 	right: -280px;
 	top: 100px;
-	border: 1px solid #fff;
 	padding: 10px;
 	background-color: rgba(0, 0, 0, 0.6);
 	width: 250px;
 }
 
 /*安全检查 e*/
+/*设备巡检 s*/
+.modal-device-wrap {
+	position: fixed;
+	right: -280px;
+	top: 100px;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 250px;
+}
+/*设备巡检 e*/
+
+/*弹窗*/
+.modal {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	z-index: 10;
+	display: none;
+}
+.modal-bg {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.5;
+	display: none;
+}
+
+.modal .modal-content {
+	width: 600px;
+	margin: 50px auto;
+	min-height: 100px;
+	padding: 10px;
+	position: relative;
+	background-color: #fff;
+	border: 2px solid #333;
+	color: #333;
+}
+.modal .modal-header {
+	height: 25px;
+	padding: 10px;
+	line-height: 25px;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+.modal .modal-body {
+	padding: 10px;
+}
+.modal .modal-footer {
+	bottom: 10px;
+	height: 25px;
+	padding: 10px;
+}
+.modal .modal-close {
+	font-size: 20px;
+	cursor: pointer;
+}
+.modal-show {
+	display: block!important;
+}
+/*树形结构样式*/
+.tree-wrap {
+	padding-left: 15px;
+}
+.icon-arrow-right, .icon-weibiaoti1 {
+	font-size: 20px;
+	cursor: pointer;
+}
+.tree-title {
+	position: relative;
+	padding-left: 20px;
+	cursor: col-resize;
+	cursor: pointer;
+}
+.tree-title i {
+	position: absolute;
+	left: 0;
+}
+.tree-item {
+	padding: 2px 0;
+}
+.tree-wrap .tree-item {
+	padding: 5px 0;
+}
+.tree-wrap .active{
+	color: red;
+	font-weight: 600;
+}

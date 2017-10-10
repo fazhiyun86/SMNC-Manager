@@ -2,11 +2,11 @@
 	var FZY = {};
 
 	FZY.init = function () {
-		this.toggle();
-		this.deviceTypeClick();
+		this.toggle(toggleCB);
+		this.toggleDevice(toggleDeviceCB);
 
 		this.setDeviceType();
-		this.setMouseMove();
+		this.setMouseMove(mouseMoveFn, mouseUpFn);
 
 		this.setBindClick();
 	}
@@ -15,36 +15,67 @@
 	 * 树形结构的点击事件
 	 * @return {[type]} [description]
 	 */
-	FZY.toggle = function () {
-		$(".tree").on("click", '.tree-toggle', function () {
+	FZY.toggle = function (callback) {
+		$(".device-type").on("click", '.tree-toggle', function () {
 			var $this = $(this);
 			var $thisIcon = $this.children();
 			var $targetUL = $this.next();
+			var $toggles = $(".device-type").find(".tree-toggle");
 
-			if (!$targetUL[0]) return false
+			if (!!$targetUL[0]) {
 
-			$targetUL.toggleClass("hide");
-			$thisIcon.toggleClass("icon-arrow-right");
+				$targetUL.toggleClass("hide");
+				$thisIcon.toggleClass("icon-arrow-right");
+
+			} else {
+				$toggles.removeClass("active")
+				$this.addClass("active");
+
+				var obj = {
+					id: $this.attr("data-id"),
+					text: $this.text()
+				}
+				callback && callback(obj);
+			}
 		})
 	};
+	// 点击左边树形结构的回调
+	function toggleCB(data) {
+		console.log("回调", data)
+	}
 
 	/**
-	 * 点击设备类型后的处理函数
+	 * 设备树形结构的点击事件
 	 * @return {[type]} [description]
 	 */
-	FZY.deviceTypeClick = function () {
-		$(".tree").on("click", '.tree-toggle', function () {
+	FZY.toggleDevice = function (callback) {
+		$(".device-info").on("click", '.tree-toggle', function () {
 			var $this = $(this);
 			var $thisIcon = $this.children();
-			//点击的toggle有图标的话，则返回
-			if ($thisIcon[0]) return false;
-			$(".tree-toggle").removeClass("active")
-			$this.addClass("active");
-			// 点击完设备类型的时候
-			// to do ........
-			console.log($this.text())
+			var $targetUL = $this.next();
+			var $toggles = $(".device-info").find(".tree-toggle");
+
+			if (!!$targetUL[0]) {
+
+				$targetUL.toggleClass("hide");
+				$thisIcon.toggleClass("icon-arrow-right");
+
+			} else {
+				$toggles.removeClass("active");
+				$this.addClass("active");
+
+				var obj = {
+					id: $this.attr("data-id"),
+					text: $this.text()
+				}
+				callback && callback(obj);
+			}
 		})
 	};
+	// 右边树形结构的回调
+	function toggleDeviceCB(data) {
+		console.log("回调", data)
+	}
 
 	/**
 	 * 设置设备类型点击事件
@@ -95,7 +126,7 @@
 	/**
 	 * 右面属性值的编辑和控制（value 值可以左右滑动来控制）
 	 */
-	FZY.setMouseMove = function () {
+	FZY.setMouseMove = function (mouseUpCB) {
 		// 鼠标滑动的时候的精确度
 		const PRECISEION = 10;
 		// precision
@@ -125,6 +156,7 @@
 		var move = {};
 		// 鼠标点下
 		$showBar.on("mousedown", function (e) {
+			console.log("down")
 			flag = true;
 			move.$this = $(this);
 			move.startClientX = e.clientX;
@@ -138,24 +170,30 @@
 			move.stepX = move.startClientX - e.clientX;
 			move.stepY = move.startClientY - e.clientY;
 
-			setValue(move)
+			var $this = move.$this;
+			var value = move.stepX / PRECISEION;
+			$this.text(move.initValue + value);
+
+			mouseMoveFn && mouseMoveFn();
 		})
 		// 鼠标抬起来
 		$(document).on("mouseup", function (e) {
+			if (!flag) return;
 			flag = false;
-
 			move.$this = null;
 			move.endClientX = e.clientX;
 			move.endClientY = e.clientY;
+			mouseUpCB && mouseUpCB();
 		})
-		// 设置值
-		function setValue(move) {
-			var $this = move.$this;
-			var value = move.stepX / PRECISEION;
-
-			$this.text(move.initValue + value);
-		}
 	};
+	// 鼠标移动时候的回调
+	function mouseMoveFn() {
+		console.log("图标移动,回调");
+	}
+	// 鼠标抬起时候的回调
+	function mouseUpFn() {
+		console.log("鼠标抬起,回调");
+	}
 
 	/**
 	 * 点击绑定的操作

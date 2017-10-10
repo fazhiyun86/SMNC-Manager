@@ -4,6 +4,7 @@
 	FZY.init = function () {
 		this.clickHeaderLi();
 		this.modals();
+		this.selectObjectModal();
 		this.handleFireSystem();
 
 		this.clickSafeCheck();
@@ -17,6 +18,12 @@
 			setAsideShow(liValue);
 		})
 
+		$(".aside-fold-icon").on('click', function () {
+			var $this = $(this);
+			var foldValue = $this.attr("data-fold");
+
+			setAsideShow(foldValue);
+		})
 
 		function setAsideShow(value) {
 			var strEl;
@@ -70,12 +77,11 @@
 			case '6':
 				searchDevice();
 			break;
-
 		}
 
 		// 对象选择
 		function selectObject() {
-			alert("选择对象!");
+			$("#modalSelectObject").toggleClass("modal-show");
 		}
 		// 消防系统的显示和隐藏
 		function fireSystem() {
@@ -89,19 +95,38 @@
 		// 安全检查
 		function safeCheck() {
 
+			common.setSliderClose('#modalDevieceCheck', {
+				position: 'right',
+				closeOpt: { right: '-280px'}
+			})
+
 			common.setSliderToggle('#modalSafeCheck', {
 				position: 'right',
 				initValue: '-280px',
 				startOpt: { right: '-280px'},
 				endOpt: { right: '10px'},
 				afterEnter: function () {
-					console.log("进入后的请求。")
+					console.log("安全检查,进入后的请求。")
 				}
 			})
 		}
 		// 设备巡检
 		function device() {
-			alert("设备巡检!");
+
+			common.setSliderClose('#modalSafeCheck', {
+				position: 'right',
+				closeOpt: { right: '-280px'}
+			})
+
+			common.setSliderToggle('#modalDevieceCheck', {
+				position: 'right',
+				initValue: '-280px',
+				startOpt: { right: '-280px'},
+				endOpt: { right: '10px'},
+				afterEnter: function () {
+					console.log("设备巡检,进入后的请求。")
+				}
+			})
 		}
 		// 数据统计
 		function dataStatic() {
@@ -110,6 +135,98 @@
 		// 设备查询
 		function searchDevice() {
 			alert("设备查询!");
+		}
+	}
+	// 对象选择弹窗的操作
+	FZY.selectObjectModal = function () {
+		// 关闭
+		$("#modalSelectObject").on("click", ".modal-close", function () {
+			$("#modalSelectObject").toggleClass("modal-show");
+		})
+		// 确定
+		$("#modalSelectBtn").on("click", function () {
+			$("#modalSelectObject").toggleClass("modal-show");
+		})
+		// 数据请求
+		setData();
+		// 样式 toggle
+		$("#objectWrap").on("click", '.tree-toggle', function () {
+			var $this = $(this);
+			var $thisIcon = $this.children();
+			var $targetUL = $this.next();
+			var $treeToggle = $("#objectWrap").find(".tree-toggle");
+
+			if ($targetUL[0]) {
+				// 折叠
+				$targetUL.toggleClass("hide");
+				$thisIcon.toggleClass("icon-arrow-right");
+			} else {
+				// 选中状态
+				$treeToggle.removeClass("active")
+				$this.addClass("active");
+			}
+		})
+		// 样式 toggle
+		$("#regionFacility").on("click", '.tree-toggle', function () {
+			var $this = $(this);
+			var $thisIcon = $this.children();
+			var $targetUL = $this.next();
+			var $treeToggle = $("#regionFacility").find(".tree-toggle");
+
+			if ($targetUL[0]) {
+				// 折叠
+				$targetUL.toggleClass("hide");
+				$thisIcon.toggleClass("icon-arrow-right");
+			} else {
+				// 选中状态
+				$treeToggle.removeClass("active")
+				$this.addClass("active");
+			}
+		})
+
+		function setData() {
+			
+			var da = [
+			    {
+			        "id": 1,  
+			        "ClassName": "设备类别1",
+			        "level": 1,
+			        "children": [
+			            {
+			                "id": 4,
+			                "ClassName": "消防栓",
+			                "level": 2,
+			                "children": []
+			            },
+			            {
+			                "id": 4,
+			                "ClassName": "末端试水装置",
+			                "level": 2,
+			                "children": []
+			            },
+			            {
+			                "id": 4,
+			                "ClassName": "湿试报警阀",
+			                "level": 2,
+			                "children": []
+			            },
+			            {
+			                "id": 4,
+			                "ClassName": "烟感探测器",
+			                "level": 2,
+			                "children": []
+			            },
+			            {
+			                "id": 4,
+			                "ClassName": "气体灭火控制盘",
+			                "level": 2,
+			                "children": []
+			            }
+			        ]
+			    }
+			]
+			$("#objectWrap").html(common.treeHtml(da));
+			$("#regionFacility").html(common.treeHtml(da));
 		}
 	}
 

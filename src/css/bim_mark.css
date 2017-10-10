@@ -27,16 +27,6 @@
 	border-bottom: 1px solid #ccc;
 }
 
-/*左边*/
-.device-type .tree-item {
-	padding: 5px 0;
-}
-.device-type .active{
-	/*background-color: #ccc;*/
-	color: red;
-	font-weight: 600;
-}
-
 /*右面 属性*/
 .attr li {
 	border-bottom: 1px solid #ccc;
@@ -64,55 +54,4 @@
 }
 .double-show {
 	cursor: col-resize;
-}
-/*弹窗*/
-.modal {
-	position: absolute;
-	width: 100%;
-	top: 0;
-	bottom: 0;
-	z-index: 10;
-	display: none;
-}
-.modal-bg {
-	position: absolute;
-	width: 100%;
-	top: 0;
-	bottom: 0;
-	background-color: #000;
-	opacity: 0.5;
-	display: none;
-}
-
-.modal-mark {
-	width: 600px;
-	margin: 50px auto;
-	min-height: 100px;
-	padding: 10px;
-	position: relative;
-	background-color: #fff;
-	border: 2px solid #333;
-	color: #333;
-}
-.modal-header {
-	height: 25px;
-	padding: 10px;
-	line-height: 25px;
-	overflow: hidden;
-	border-bottom: 1px solid #ccc;
-}
-.modal-body {
-	padding: 10px;
-}
-.modal-footer {
-	bottom: 10px;
-	height: 25px;
-	padding: 10px;
-}
-.modal-close {
-	font-size: 20px;
-	cursor: pointer;
-}
-.modal-show {
-	display: block!important;
 }

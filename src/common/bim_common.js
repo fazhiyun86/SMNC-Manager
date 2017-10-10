@@ -2,38 +2,6 @@
 	var common = {}
 	
 	/**
-	 * [ajax description]
-	 * @param  {[objec]} obj [description]
-	 */	
-	common.ajax = function (obj) {
-		obj = obj || {}
-		var type = obj.type || 'get',
-			url = obj.url,
-			data = obj.data,
-			success = obj.success;
-		var XHR = null;
-		if (window.XMLHttpRequest) {
-			XHR = new XMLHttpRequest();
-		} else if (window.ActiveXObject) {
-			XHR = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-
-		if (XHR) {
-			if (type === 'get') {
-				XHR.open('get', url)
-				XHR.onreadystatechange = function () {
-					if (XHR.readyState == 4 && XHR.status == 200) {
-						success && success(XHR.responseText);
-						XHR = null;
-					}
-				}
-			} else if (type === 'post') {
-				
-			}
-		}
-	};
-
-	/**
 	 * 树形结构
 	 */
 	common.treeHtml = function (data) {
@@ -43,7 +11,7 @@
 			html += '<ul class="tree-wrap">';
 			for (var i = 0; i < data.length; i++) {
 				var item = data[i];
-				html += '<li class="tree-item"><p class="tree-title tree-toggle">' + icon(item.children) +item.text + '</p>' 
+				html += '<li class="tree-item"><p class="tree-title tree-toggle" data-id="'+ item.ID +'">' + icon(item.children) +item.ClassName + '</p>' 
 				if (item.children != 0) loop(item.children)
 				html += '</li>'
 			}
@@ -61,27 +29,29 @@
 
 	/**
 	 * 把线性数据结构改成树形数据结构
+	 * 如
 	 * 10001000
 	 * 100010001000
+	 * 改成 [{id: 10001000, children: [{id: 100010001000}] }]
 	 * @param {[type]} data [description]
 	 */
 	common.setDataStructure = function (data) {
 		if (!data) return null;
 
-		var minLen = 8,
+		var minLen = 6,
 			maxLen = 20,
-			stepLen = 4;
+			stepLen = 3;
 
 		// 查找父集合的id,设置为pId,
 		for (var i = 0; i < data.length; i++) {
 			var item = data[i];
-			var id = item.id;
-			var idLen = id.length;
+			var LevelCode = item.LevelCode;
+			var idLen = LevelCode.length;
 
 			if (idLen === minLen) {
 				item.pId = 0 + '';
 			} else {
-				item.pId = id.substring(0, idLen - stepLen);
+				item.pId = LevelCode.substring(0, idLen - stepLen);
 			}
 			item.children = [];
 		}
@@ -113,10 +83,14 @@
 				var children = [];
 				for (var i = 0; i < info.length; i++) {
 					var item = info[i];
-					item.children = item['children'].concat(this.getData(this.groups[item.id]));
+					var target = this.getData(this.groups[item.LevelCode])
+					if (!!target) {
+						item.children = item['children'].concat(target);
+					} else {
+						item.children = item['children'];
+					}
 					children.push(item);
 				}
-
 				return children;
 			}
 		}
@@ -157,12 +131,25 @@
 		var nowBottom = $El.css(position)
 
 		if (nowBottom === initValue) {
+			// 进入操作
 			$El.animate(endOpt)
 			// 进入后的回调
 			afterEnter && afterEnter();
 		} else {
-			$El.animate(startOpt)
+			// 移出操作
+			$El.animate(startOpt);
 		}
+	}
+	common.setSliderClose = function (el, opt) {
+		opt = opt || {};
+		var $El = $(el),
+			position = opt.position,
+			closeOpt = opt.closeOpt;
+
+		var nowBottom = $El.css(position);
+
+		if (nowBottom == closeOpt[position]) return false
+		$El.animate(closeOpt);
 	}
 	
 	window.common = common;

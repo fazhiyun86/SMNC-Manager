@@ -32,7 +32,7 @@
 						<a href="javascript:;"><i class="iconfont icon-heart"></i></a>
 					</li>
 					<li class="header-li" data-li="3">
-						<a href="javascript:;"><i class="iconfont icon-setting"></i></a>
+						<a href="javascript:;"><i class="iconfont icon-tasks"></i></a>
 					</li>
 				</ul>
 			</div>
@@ -114,20 +114,9 @@
 		<div class="aside-header aside-system-header">
 			<i class="iconfont icon-daojishi"></i>
 			<span>系统加载</span>
+			<i class="iconfont icon-zhedie aside-fold-icon" data-fold="1"></i>
 		</div>
 		<div class="aside-content aside-system-content">
-			<p>
-				<span class="one">B2主体建筑加载</span><span class="two">成功</span>
-				<span class="three">124ms</span>
-			</p>
-			<p>
-				<span class="one">B2主体建筑加载</span><span class="two">成功</span>
-				<span class="three">124ms</span>
-			</p>
-			<p>
-				<span class="one">B2主体建筑加载</span><span class="two">成功</span>
-				<span class="three">124ms</span>
-			</p>
 			<p>
 				<span class="one">B2主体建筑加载</span><span class="two">成功</span>
 				<span class="three">124ms</span>
@@ -164,6 +153,7 @@
 		<div class="aside-header aside-device-header">
 			<i class="iconfont icon-heart"></i>
 			<span>设备异常报警</span>
+			<i class="iconfont icon-zhedie aside-fold-icon" data-fold="2"></i>
 		</div>
 		<div class="aside-content aside-device-content">
 			<div class="aside-item-wrap">
@@ -178,9 +168,9 @@
 	<!-- 安全检查异常 s -->
 	<div id="asideSafe" class="aside-wrap aside-safe-wrap">
 		<div class="aside-header aside-safe-header">
-			<i class="iconfont icon-setting"></i>
+			<i class="iconfont icon-tasks"></i>
 			<span>安全检查异常</span>
-			<i class="iconfont icon-zhedie"></i>
+			<i class="iconfont icon-zhedie aside-fold-icon" data-fold="3"></i>
 		</div>
 		<div class="aside-content aside-safe-content">
 			<div class="aside-item-wrap aside-item-click">
@@ -195,14 +185,20 @@
 
 	<!-- 弹窗 -->
 	<!-- 对象选择 s -->
-	<div id="modalSelectObject" class="modal-big-wrap hide">
-		<div class="modal-wrap-header">
-			<h2>header</h2>
+	<div id="modalSelectObject" class="modal">
+		<div class="modal-mark modal-content">
+			<div class="modal-header">
+				<h2 class="pull-left">对象选择</h2>
+				<span class="modal-close pull-right">&times;</span>
+			</div>
+			<div class="modal-body">
+				<div id="objectWrap" class="modal-body-left"></div>
+				<div id="regionFacility" class="modal-body-right"></div>
+			</div>
+			<div class="modal-footer">
+				<button id="modalSelectBtn" class="btn modal-object-btn pull-right">确定</button>
+			</div>
 		</div>
-		<div class="modal-wrap-main">
-			
-		</div>
-		<div class="modal-wrap-footer"></div>
 	</div>
 	<!-- 对象选择 e -->
 	<!-- 消防系统 s -->
@@ -223,22 +219,65 @@
 	</div>
 	<!-- 消防系统 e -->
 	<!-- 安全检查 s -->
-	<div id="modalSafeCheck" class="modal-safe-wrap" >
-		<div class="modal-safe-header"></div>
-		<div class="modal-safe-content">
-			helow
+	<div id="modalSafeCheck" class="modal-right-wrap modal-safe-wrap" >
+		<div class="modal-right-header modal-safe-header">
+			<i class="iconfont icon-file"></i>
+			<span>安全检查</span>
+			<i class="iconfont icon-iconjian"></i>
+		</div>
+		<div class="modal-right-content modal-safe-content">
+			<div class="modal-right-item modal-safe-item">
+				<p>B2一层区域规范检查月度任务</p>
+				<p class="safe-item-time">2017.8.1-2017.8.31</p>
+				<p>
+					<span>完成：</span> <span>100%</span>
+					&nbsp;&nbsp;
+					<span>异常：</span> <span>3</span>
+				</p>
+			</div>
+			<div class="modal-right-item modal-safe-item">
+				<p>B2一层区域规范检查月度任务</p>
+				<p class="safe-item-time">2017.8.1-2017.8.31</p>
+				<p>
+					<span>完成：</span> <span>100%</span>
+					&nbsp;&nbsp;
+					<span>异常：</span> <span>3</span>
+				</p>
+			</div>
 		</div>
 	</div>
 	<!-- 安全检查 e -->
 	<!-- 设备巡检 s -->
-	<div id="modalDevieceCheck" class="modal-device-wrap">
-		<div class="modal-device-header"></div>
-		<div class="modal-deviece-content">
-			设备巡检
+	<div id="modalDevieceCheck" class="modal-right-wrap modal-device-wrap">
+		<div class="modal-right-header modal-device-header">
+			<i class="iconfont icon-file"></i>
+			<span>设备巡检</span>
+			<i class="iconfont icon-iconjian"></i>
+		</div>
+		<div class="modal-right-content modal-deviece-content">
+			<div class="modal-right-item modal-safe-item">
+				<p>B2一层区域规范检查月度任务</p>
+				<p class="safe-item-time">2017.8.1-2017.8.31</p>
+				<p>
+					<span>完成：</span> <span>100%</span>
+					&nbsp;&nbsp;
+					<span>異常：</span> <span>3</span>
+				</p>
+			</div>
+			<div class="modal-right-item modal-safe-item">
+				<p>B2一层区域规范检查月度任务</p>
+				<p class="safe-item-time">2017.8.1-2017.8.31</p>
+				<p>
+					<span>完成：</span> <span>100%</span>
+					&nbsp;&nbsp;
+					<span>異常：</span> <span>3</span>
+				</p>
+			</div>
 		</div>
 	</div>
 	<!-- 设备巡检 e -->
-	
+	<!-- 弹窗的黑层 -->
+	<div class="modal-bg"></div>
 
 	<script src="src/common/lib/jquery-1.11.3.js"></script>
 	<script src="src/common/bim_common.js"></script>

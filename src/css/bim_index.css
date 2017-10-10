@@ -102,7 +102,13 @@
 	color: #fff;
 }
 
-/*左边侧栏样式 s*/
+.aside-header i.icon-zhedie {
+	font-size: 14px;
+	float: right;
+	color: #CCCCFF;
+	cursor: pointer;
+}
+/*左边侧栏样式 e*/
 
 /*系统加载 s*/
 .aside-system-content {
@@ -113,17 +119,8 @@
 /*系统加载 e*/
 
 /*设备异常报警 s*/
-.aside-device-header i.iconfont {
-	color: #de7125;
-}
-.aside-device-header span {
-	color: #00CC00;
-}
-/*设备异常报警 e*/
-
-/*设备异常报警 s*/
 .aside-device-header i.icon-heart,
-.aside-safe-header i.icon-setting {
+.aside-safe-header i.icon-tasks {
 	color: #de7125;
 }
 .aside-device-header span, 
@@ -133,7 +130,54 @@
 .aside-item-click {
 	cursor: pointer;
 }
-.aside-header i.icon-zhedie {
-	font-size: 14px;
-}
 /*设备异常报警 e*/
+
+/*安全检查*/
+#modalSelectObject .modal-content {
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+#modalSelectObject .modal-header {
+	border-bottom: 1px solid #817268;
+}
+.modal-right-header {
+	color: #CCCCCC;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.modal-right-header i.icon-file {
+	font-size: 18px;
+}
+.modal-right-header i.icon-iconjian {
+	float: right;
+	font-size: 18px;
+	cursor: pointer;
+}
+.modal-right-item {
+	padding: 5px;
+	background-color: #000;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+.modal-right-item > p {
+	font-size: 14px;
+	padding: 3px 0;
+	color: #99CCFF;
+}
+.modal-right-item > p.safe-item-time {
+	font-size: 13px;
+}
+/*对象选择的弹窗*/
+#modalSelectObject .modal-body {
+	display: flex;
+	justify-content: space-between;
+}
+#modalSelectObject .modal-body > div {
+	background-color: #000;
+	width: 47%;
+	padding: 5px;
+}
+#modalSelectObject .modal-object-btn {
+	background-color: #000;
+	color: #fff;
+}
